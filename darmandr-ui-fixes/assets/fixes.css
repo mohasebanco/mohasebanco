@@ -1,0 +1,35 @@
+/**
+ * دکمه‌های شناور را روی موبایل بالای منوی پایین نگه می‌دارد.
+ * منوی ثابت حدود ۷۰ پیکسل ارتفاع دارد و ۱۰ پیکسل از پایین فاصله دارد.
+ */
+@media screen and (max-width: 768px) {
+	:root {
+		--drdr-mobile-nav-clearance: 96px;
+	}
+
+	.chaty,
+	.chaty-widget,
+	.chaty-outer-forms,
+	.chaty-chat-view,
+	#chaty-widget {
+		bottom: var(--drdr-mobile-nav-clearance) !important;
+	}
+
+	i.backtotop {
+		bottom: var(--drdr-mobile-nav-clearance) !important;
+		z-index: 99990 !important;
+	}
+
+	html.drdr-crisp-closed .crisp-client {
+		--drdr-crisp-lift: var(--drdr-mobile-nav-clearance);
+	}
+}
+
+html.drdr-crisp-open .chaty,
+html.drdr-crisp-open .chaty-widget,
+html.drdr-crisp-open .chaty-outer-forms,
+html.drdr-crisp-open i.backtotop {
+	opacity: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
