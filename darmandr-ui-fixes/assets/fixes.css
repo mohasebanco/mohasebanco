@@ -1,0 +1,48 @@
+/**
+ * آیکون تماس شناور (چتی) را روی موبایل از پشت منوی پایین بیرون می‌آورد.
+ * منوی ثابت z-index خیلی بالاتری دارد و چتی با فاصله ۲۵ پیکسل زیر آن می‌ماند.
+ */
+@media screen and (max-width: 768px) {
+	:root {
+		--drdr-mobile-nav-clearance: 110px;
+	}
+
+	/* ویجت تماس: بالاتر از نوار منو + لایه بالاتر از منو */
+	.chaty,
+	#chaty-widget-0,
+	#chaty-widget-_,
+	[id^="chaty-widget"] {
+		z-index: 100050 !important;
+	}
+
+	.chaty .chaty-widget,
+	#chaty-widget-0 .chaty-widget,
+	#chaty-widget-_ .chaty-widget,
+	[id^="chaty-widget"] .chaty-widget,
+	.chaty-widget.left-position,
+	.chaty-widget.right-position {
+		bottom: var(--drdr-mobile-nav-clearance) !important;
+		z-index: 100050 !important;
+	}
+
+	.chaty-outer-forms,
+	.chaty-chat-view {
+		bottom: calc(var(--drdr-mobile-nav-clearance) + 8px) !important;
+		z-index: 100051 !important;
+	}
+
+	i.backtotop {
+		bottom: var(--drdr-mobile-nav-clearance) !important;
+		z-index: 100040 !important;
+	}
+}
+
+/* وقتی گفتگوی کریسپ باز است، تماس شناور را پنهان کن تا شلوغ نشود */
+html.drdr-crisp-open .chaty,
+html.drdr-crisp-open [id^="chaty-widget"],
+html.drdr-crisp-open .chaty-outer-forms,
+html.drdr-crisp-open i.backtotop {
+	opacity: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
